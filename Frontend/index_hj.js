@@ -1,5 +1,5 @@
 const reviewsList = document.querySelector("#reviews-list")
-const newReview = document.querySelector("#new-review")
+
 fetchShoes()
 addReview()
 
@@ -9,7 +9,6 @@ function fetchShoes() {
       return res.json();
     })
     .then(function (json) {
-      console.log(json)
       json.forEach(renderShoe)
       renderMainShoe(json[0])
     })
@@ -46,7 +45,6 @@ function renderReviews(reviews) {
 }
 
 function renderOneReview(review){
-  console.log(review)
   const reviewLi = document.createElement("li")
     reviewLi.innerText = review.content
     reviewLi.className = "list-group-item"
@@ -54,7 +52,7 @@ function renderOneReview(review){
 }
 
 function addReview() {
-  
+  const newReview = document.querySelector("#new-review")
   newReview.addEventListener("submit", function (e) {
     e.preventDefault();
     // debugger
